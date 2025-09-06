@@ -49,6 +49,9 @@ const Navigation = () => {
             <Button variant="outline" size="sm" className="btn-outline-moroccan text-xs">
               Réserver
             </Button>
+            <Button variant="ghost" size="sm" asChild className="text-accent hover:text-accent/80 text-xs">
+              <a href="/auth">Admin</a>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
