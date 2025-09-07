@@ -9,6 +9,7 @@ import {
   ImageIcon,
   Settings,
   Coffee,
+  Users,
 } from 'lucide-react';
 
 const navigation = [
@@ -17,6 +18,7 @@ const navigation = [
   { name: 'Reservations', href: '/admin/reservations', icon: Calendar },
   { name: 'Specials', href: '/admin/specials', icon: Star },
   { name: 'Gallery', href: '/admin/gallery', icon: ImageIcon },
+  { name: 'Staff Management', href: '/admin/staff', icon: Users, adminOnly: true },
   { name: 'Settings', href: '/admin/settings', icon: Settings, adminOnly: true },
 ];
 

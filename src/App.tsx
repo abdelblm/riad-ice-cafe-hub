@@ -7,9 +7,13 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import { AdminLayout } from "./components/admin/AdminLayout";
-import Dashboard from "./pages/admin/Dashboard";
-import MenuManagement from "./pages/admin/MenuManagement";
-import ReservationsManagement from "./pages/admin/ReservationsManagement";
+import Dashboard from "@/pages/admin/Dashboard";
+import MenuManagement from "@/pages/admin/MenuManagement";
+import ReservationsManagement from "@/pages/admin/ReservationsManagement";
+import SpecialsManagement from "@/pages/admin/SpecialsManagement";
+import GalleryManagement from "@/pages/admin/GalleryManagement";
+import StaffManagement from "@/pages/admin/StaffManagement";
+import SettingsManagement from "@/pages/admin/SettingsManagement";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +30,10 @@ const App = () => (
             <Route index element={<Dashboard />} />
             <Route path="menu" element={<MenuManagement />} />
             <Route path="reservations" element={<ReservationsManagement />} />
+            <Route path="specials" element={<SpecialsManagement />} />
+            <Route path="gallery" element={<GalleryManagement />} />
+            <Route path="staff" element={<StaffManagement />} />
+            <Route path="settings" element={<SettingsManagement />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
