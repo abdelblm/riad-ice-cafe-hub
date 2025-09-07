@@ -54,7 +54,7 @@ const HeroSection = () => {
             </Button>
             
             <Button 
-              className="btn-outline-moroccan group"
+              className="border-2 border-accent text-accent bg-transparent px-8 py-3 rounded-xl font-medium hover:bg-accent hover:text-accent-foreground transition-all duration-300"
               onClick={() => openWhatsApp()}
             >
               <MessageCircle className="mr-2 h-4 w-4" />
@@ -62,7 +62,7 @@ const HeroSection = () => {
               <span className="hidden sm:inline ml-1">/ Book via WhatsApp</span>
             </Button>
             
-            <Button variant="ghost" className="text-primary-foreground hover:text-accent">
+            <Button variant="ghost" className="font-semibold px-4 py-2 rounded-xl shadow bg-green-700 text-white hover:bg-green-800 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
               Commander en Ligne
             </Button>
           </div>

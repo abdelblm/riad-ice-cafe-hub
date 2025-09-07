@@ -103,7 +103,7 @@ const MenuHighlights = () => {
                       <span>{item.time}</span>
                     </div>
                   </div>
-                  <Button size="sm" variant="outline" className="group">
+                  <Button size="sm" variant="outline" className="group font-semibold px-4 py-2 rounded shadow bg-green-700 text-white hover:bg-green-800 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                     <Utensils className="h-4 w-4 mr-1 group-hover:rotate-12 transition-transform duration-300" />
                     Commander
                   </Button>
@@ -130,7 +130,7 @@ const MenuHighlights = () => {
           </div>
           
           <div className="text-center mt-8">
-            <Button className="btn-moroccan">
+            <Button className="font-semibold px-4 py-2 rounded shadow bg-green-700 text-white hover:bg-green-800 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
               Voir le Menu Complet
             </Button>
           </div>

@@ -56,7 +56,7 @@ const Navigation = () => {
               <MessageCircle className="h-3 w-3 mr-1" />
               Réserver via WhatsApp
             </Button>
-            <Button variant="ghost" size="sm" asChild className="text-accent hover:text-accent/80 text-xs">
+            <Button variant="ghost" size="sm" asChild className="text-accent hover:text-black text-xs">
               <a href="/auth">Admin</a>
             </Button>
           </div>
