@@ -1,6 +1,6 @@
 // WhatsApp utility functions for Riad Ice reservations
 
-export const WHATSAPP_PHONE = "212123456789"; // +212 123 456 789 without + and spaces
+export const WHATSAPP_PHONE = "212693254604"; // +212 123 456 789 without + and spaces
 
 export interface ReservationDetails {
   guests?: number;
