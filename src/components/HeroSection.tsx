@@ -1,5 +1,6 @@
-import { ArrowRight, Play, Star } from 'lucide-react';
+import { ArrowRight, Play, Star, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { openWhatsApp } from '@/utils/whatsapp';
 import heroImage from '@/assets/hero-restaurant-exterior.jpg';
 
 const HeroSection = () => {
@@ -52,9 +53,13 @@ const HeroSection = () => {
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             
-            <Button className="btn-outline-moroccan group">
-              Réserver une Table
-              <Play className="ml-2 h-4 w-4 group-hover:scale-110 transition-transform duration-300" />
+            <Button 
+              className="btn-outline-moroccan group"
+              onClick={() => openWhatsApp()}
+            >
+              <MessageCircle className="mr-2 h-4 w-4" />
+              Réserver via WhatsApp
+              <span className="hidden sm:inline ml-1">/ Book via WhatsApp</span>
             </Button>
             
             <Button variant="ghost" className="text-primary-foreground hover:text-accent">

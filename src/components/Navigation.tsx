@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Menu, X, Phone, MapPin } from 'lucide-react';
+import { Menu, X, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { openWhatsApp } from '@/utils/whatsapp';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,8 +47,14 @@ const Navigation = () => {
               <Phone className="h-4 w-4 mr-1" />
               <span>+212 123 456 789</span>
             </div>
-            <Button variant="outline" size="sm" className="btn-outline-moroccan text-xs">
-              Réserver
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="btn-outline-moroccan text-xs"
+              onClick={() => openWhatsApp()}
+            >
+              <MessageCircle className="h-3 w-3 mr-1" />
+              Réserver via WhatsApp
             </Button>
             <Button variant="ghost" size="sm" asChild className="text-accent hover:text-accent/80 text-xs">
               <a href="/auth">Admin</a>
@@ -87,8 +94,12 @@ const Navigation = () => {
                 <Phone className="h-4 w-4 mr-2" />
                 <span>+212 123 456 789</span>
               </div>
-              <Button className="btn-moroccan mx-3 mt-2 w-full">
-                Réserver une Table
+              <Button 
+                className="btn-moroccan mx-3 mt-2 w-full"
+                onClick={() => openWhatsApp()}
+              >
+                <MessageCircle className="h-4 w-4 mr-2" />
+                Réserver via WhatsApp
               </Button>
             </div>
           </div>
