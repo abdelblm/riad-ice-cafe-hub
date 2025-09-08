@@ -62,7 +62,6 @@ const Navigation = () => {
           {/* Mobile menu button */}
           <div className="md:hidden">
             <Button
-              variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className="text-primary-foreground hover:text-accent"
