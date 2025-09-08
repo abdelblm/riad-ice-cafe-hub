@@ -40,20 +40,3 @@
 .read-the-docs {
   color: #888;
 }
-
-/* Moroccan-style button utility for accessibility and smooth UX */
-.btn-moroccan {
-  @apply bg-green-700 text-white font-semibold px-4 py-2 rounded shadow hover:bg-green-800 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
-  color: #fff;
-  background-color: #15803d;
-}
-
-.btn-moroccan:disabled {
-  @apply opacity-50 cursor-not-allowed;
-}
-
-.btn-moroccan:hover {
-  @apply text-white bg-green-800;
-  color: #fff;
-  background-color: #166534;
-}

@@ -97,7 +97,7 @@ const WhatsAppReservation: React.FC<WhatsAppReservationProps> = ({
             </div>
           </div>
           
-          <Button type="submit" className="w-full font-semibold px-4 py-2 rounded shadow bg-green-700 text-white hover:bg-green-800 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+          <Button type="submit" className="btn-moroccan w-full">
             <MessageCircle className="mr-2 h-4 w-4" />
             Réserver via WhatsApp
           </Button>
@@ -187,7 +187,7 @@ const WhatsAppReservation: React.FC<WhatsAppReservationProps> = ({
           </Select>
         </div>
 
-  <Button type="submit" className="w-full font-semibold px-4 py-2 rounded shadow bg-green-700 text-white hover:bg-green-800 hover:text-white transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 group">
+        <Button type="submit" className="btn-moroccan w-full group">
           <Send className="mr-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           Send WhatsApp Message / Envoyer via WhatsApp
         </Button>

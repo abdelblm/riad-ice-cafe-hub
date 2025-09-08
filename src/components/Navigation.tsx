@@ -11,7 +11,6 @@ const Navigation = () => {
     { name: 'À Propos', href: '#about', nameAr: 'من نحن' },
     { name: 'Menu', href: '#menu', nameAr: 'القائمة' },
     { name: 'Galerie', href: '#gallery', nameAr: 'المعرض' },
-    { name: 'Réservation', href: '#reservation', nameAr: 'حجز' },
     { name: 'Contact', href: '#contact', nameAr: 'اتصل بنا' },
   ];
 
