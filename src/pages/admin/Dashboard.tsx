@@ -8,17 +8,17 @@ export default function Dashboard() {
     queryKey: ['dashboard-stats'],
     queryFn: async () => {
       const [menuItems, reservations, specials, galleryImages] = await Promise.all([
-        supabase.from('menu_items').select('id').eq('is_active', true),
-        supabase.from('reservations').select('id').eq('status', 'pending'),
-        supabase.from('specials').select('id').eq('is_active', true),
-        supabase.from('gallery_images').select('id').eq('is_active', true),
+        supabase.from('menu_items').select('id', { count: 'exact' }).eq('is_available', true),
+        supabase.from('reservations').select('id', { count: 'exact' }).eq('status', 'pending'),
+        supabase.from('specials').select('id', { count: 'exact' }).eq('is_active', true),
+        supabase.from('gallery_images').select('id', { count: 'exact' }).eq('is_active', true),
       ]);
 
       return {
-        activeMenuItems: menuItems.data?.length || 0,
-        pendingReservations: reservations.data?.length || 0,
-        activeSpecials: specials.data?.length || 0,
-        galleryImages: galleryImages.data?.length || 0,
+        activeMenuItems: menuItems.count || 0,
+        pendingReservations: reservations.count || 0,
+        activeSpecials: specials.count || 0,
+        galleryImages: galleryImages.count || 0,
       };
     },
   });
@@ -122,7 +122,7 @@ export default function Dashboard() {
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm text-muted-foreground">{reservation.number_of_guests} guests</p>
+                      <p className="text-sm text-muted-foreground">{reservation.party_size} guests</p>
                       <span
                         className={`px-2 py-1 rounded text-xs ${
                           reservation.status === 'pending'

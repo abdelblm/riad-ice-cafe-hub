@@ -6,10 +6,12 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert } from '@/components/ui/alert';
 import { useAuth } from '@/hooks/useAuth';
+import { useToast } from '@/hooks/use-toast';
 import { Loader2, Coffee } from 'lucide-react';
 
 export default function Auth() {
   const { user, loading, signIn } = useAuth();
+  const { toast } = useToast();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -34,7 +36,13 @@ export default function Auth() {
 
     try {
       const { error } = await signIn(email, password);
-      if (error) throw error;
+      if (error) {
+        toast({
+          title: "Login Failed",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
     } catch (error: any) {
       setError(error.message || 'An error occurred');
     } finally {
