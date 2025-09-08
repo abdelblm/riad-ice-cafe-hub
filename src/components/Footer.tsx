@@ -22,10 +22,12 @@ const Footer = () => {
             
             <div className="flex space-x-4 mt-6">
               <a href="#" className="text-primary-foreground/70 hover:text-accent transition-colors duration-300">
-                <Instagram className="h-5 w-5" />
+                <Instagram className="h-5 w-5"
+                 onClick={() => window.open('https://www.instagram.com/riad.ice/', '_blank')} />
               </a>
               <a href="#" className="text-primary-foreground/70 hover:text-accent transition-colors duration-300">
-                <Facebook className="h-5 w-5" />
+                <Facebook className="h-5 w-5" 
+                onClick={() => window.open('https://web.facebook.com/riad.ice/?_rdc=1&_rdr#', '_blank')}/>
               </a>
             </div>
           </div>
@@ -64,12 +66,12 @@ const Footer = () => {
               <div className="flex items-center">
                 <MapPin className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
                 <span className="text-primary-foreground/80">
-                  Boulevard Mohammed V, Casablanca
+                  JHF5+6W2, Âïn-Harrouda, Grand Casablanca, Maroc
                 </span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
-                <span className="text-primary-foreground/80">+212 123 456 789</span>
+                <span className="text-primary-foreground/80"> +212 7667 13267</span>
               </div>
               <div className="flex items-center">
                 <Mail className="h-4 w-4 text-accent mr-2 flex-shrink-0" />

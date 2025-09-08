@@ -163,7 +163,7 @@ export default function SettingsManagement() {
                     id="phone"
                     value={contactInfo.phone}
                     onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
-                    placeholder="+212 123 456 789"
+                    placeholder=" +212 7667 13267"
                   />
                 </div>
                 <div className="space-y-2">
@@ -172,7 +172,7 @@ export default function SettingsManagement() {
                     id="whatsapp"
                     value={contactInfo.whatsapp}
                     onChange={(e) => setContactInfo({ ...contactInfo, whatsapp: e.target.value })}
-                    placeholder="+212 123 456 789"
+                    placeholder=" +212 7667 13267"
                   />
                 </div>
               </div>

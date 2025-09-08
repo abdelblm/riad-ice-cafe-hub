@@ -10,7 +10,6 @@ const Navigation = () => {
     { name: 'Accueil', href: '#home', nameAr: 'الرئيسية' },
     { name: 'À Propos', href: '#about', nameAr: 'من نحن' },
     { name: 'Menu', href: '#menu', nameAr: 'القائمة' },
-    { name: 'Galerie', href: '#gallery', nameAr: 'المعرض' },
     { name: 'Contact', href: '#contact', nameAr: 'اتصل بنا' },
   ];
 
@@ -44,7 +43,7 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center text-primary-foreground/80 text-sm">
               <Phone className="h-4 w-4 mr-1" />
-              <span>+212 123 456 789</span>
+              <span> +212 7667 13267</span>
             </div>
             <Button 
               variant="outline" 
@@ -55,9 +54,9 @@ const Navigation = () => {
               <MessageCircle className="h-3 w-3 mr-1" />
               Réserver via WhatsApp
             </Button>
-            <Button variant="ghost" size="sm" asChild className="text-accent hover:text-black text-xs">
+            {/* <Button variant="ghost" size="sm" asChild className="text-accent hover:text-black text-xs">
               <a href="/auth">Admin</a>
-            </Button>
+            </Button> */}
           </div>
 
           {/* Mobile menu button */}
@@ -91,7 +90,7 @@ const Navigation = () => {
             <div className="pt-4 pb-2 border-t border-border/20 mt-4">
               <div className="flex items-center text-primary-foreground/80 text-sm px-3 py-2">
                 <Phone className="h-4 w-4 mr-2" />
-                <span>+212 123 456 789</span>
+                <span> +212 7667 13267</span>
               </div>
               <Button 
                 className="btn-moroccan mx-3 mt-2 w-full"

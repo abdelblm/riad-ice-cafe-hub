@@ -5,6 +5,8 @@ import couscousImage from '@/assets/couscous-hero.jpg';
 import pastillaImage from '@/assets/pastilla-hero.jpg';
 import milkshakeImage from '@/assets/milkshake-hero.jpg';
 
+
+
 const MenuHighlights = () => {
   const specialties = [
     {

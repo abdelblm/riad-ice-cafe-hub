@@ -1,9 +1,9 @@
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
-import MenuHighlights from '@/components/MenuHighlights';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import MenuPage from './MenuPage';
 
 const Index = () => {
   return (
@@ -11,7 +11,7 @@ const Index = () => {
       <Navigation />
       <main>
         <HeroSection />
-        <MenuHighlights />
+        <MenuPage />
         <AboutSection />
         <ContactSection />
       </main>
