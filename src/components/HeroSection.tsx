@@ -1,19 +1,45 @@
-import { ArrowRight, Play, Star, MessageCircle } from 'lucide-react';
+import { ArrowRight, Play, Star, MessageCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { openWhatsApp } from '@/utils/whatsapp';
-import heroImage from '@/assets/hero-restaurant-exterior.jpg';
+import { useState, useEffect } from 'react';
+import heroImage from '@/assets/hero-restaurant-exterior.webp';
 
 const HeroSection = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
+  // Preload the hero image
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroImage;
+    img.onload = () => setImageLoaded(true);
+  }, []);
+
   return (
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
+      {/* Loading Indicator */}
+      {!imageLoaded && (
+        <div className="absolute inset-0 flex items-center justify-center bg-primary/80 z-20">
+          <div className="flex flex-col items-center">
+            <Loader2 className="h-12 w-12 text-accent animate-spin mb-4" />
+            <p className="text-accent font-medium">Chargement...</p>
+          </div>
+        </div>
+      )}
+      
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-105">
+        <img 
+          src={heroImage} 
+          alt="Riad Ice Restaurant Exterior" 
+          className={`w-full h-full object-cover transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
+          loading="eager" 
+          fetchpriority="high" 
+          onLoad={() => setImageLoaded(true)}
+        />
+      </div>
 
       {/* Overlay */}
       <div className="hero-overlay" />
