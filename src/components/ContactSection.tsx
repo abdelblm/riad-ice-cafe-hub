@@ -7,8 +7,8 @@ const ContactSection = () => {
     {
       icon: MapPin,
       title: 'Adresse',
-      content: 'Boulevard Mohammed V, Casablanca',
-      contentAr: 'شارع محمد الخامس، الدار البيضاء',
+      content: 'JHF5+6W2, Âïn-Harrouda, Grand Casablanca, Maroc',
+      contentAr: 'شارع محمد الخامس، الدار البيضاعين حرودة، الدار البيضاء الكبرى، المغرب'
     },
     {
       icon: Phone,
@@ -149,7 +149,7 @@ const ContactSection = () => {
                   <p className="font-moroccan text-lg mb-2">
                     Carte Interactive
                   </p>
-                  <p className="text-sm">Boulevard Mohammed V</p>
+                  <p className="text-sm">Âïn-Harrouda</p>
                   <p className="text-sm">Casablanca, Maroc</p>
                 </div>
                 <div className="w-full max-w-3xl">
