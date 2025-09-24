@@ -7,7 +7,16 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
-import { Settings, Clock, Phone, Mail, MapPin, Facebook, Instagram, Globe } from 'lucide-react';
+import {
+  Settings,
+  Clock,
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Globe,
+} from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useUserRole } from '@/hooks/useUserRole';
 
@@ -22,14 +31,14 @@ export default function SettingsManagement() {
   const { toast } = useToast();
   const { isAdmin } = useUserRole();
   const queryClient = useQueryClient();
-  
+
   const [contactInfo, setContactInfo] = useState({
     phone: '',
     email: '',
     address: '',
     whatsapp: '',
   });
-  
+
   const [openingHours, setOpeningHours] = useState({
     monday: { open: '09:00', close: '22:00', closed: false },
     tuesday: { open: '09:00', close: '22:00', closed: false },
@@ -39,7 +48,7 @@ export default function SettingsManagement() {
     saturday: { open: '09:00', close: '22:00', closed: false },
     sunday: { open: '09:00', close: '22:00', closed: false },
   });
-  
+
   const [socialLinks, setSocialLinks] = useState({
     facebook: '',
     instagram: '',
@@ -49,18 +58,16 @@ export default function SettingsManagement() {
   const { data: settings, isLoading } = useQuery({
     queryKey: ['settings'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('settings')
-        .select('*');
-      
+      const { data, error } = await supabase.from('settings').select('*');
+
       if (error) throw error;
-      
+
       // Process settings into our state
       const settingsMap = data.reduce((acc: any, setting: SettingValue) => {
         acc[setting.key] = setting.value;
         return acc;
       }, {});
-      
+
       if (settingsMap.contact_info) {
         setContactInfo(settingsMap.contact_info);
       }
@@ -70,7 +77,7 @@ export default function SettingsManagement() {
       if (settingsMap.social_links) {
         setSocialLinks(settingsMap.social_links);
       }
-      
+
       return data as SettingValue[];
     },
   });
@@ -78,15 +85,13 @@ export default function SettingsManagement() {
   const updateSettingMutation = useMutation({
     mutationFn: async ({ key, value }: { key: string; value: any }) => {
       const { data: currentUser } = await supabase.auth.getUser();
-      
-      const { error } = await supabase
-        .from('settings')
-        .upsert({
-          key,
-          value,
-          updated_by: currentUser.user?.id,
-        });
-      
+
+      const { error } = await supabase.from('settings').upsert({
+        key,
+        value,
+        updated_by: currentUser.user?.id,
+      });
+
       if (error) throw error;
     },
     onSuccess: () => {
@@ -94,7 +99,11 @@ export default function SettingsManagement() {
       toast({ title: 'Success', description: 'Settings updated successfully' });
     },
     onError: (error) => {
-      toast({ title: 'Error', description: 'Failed to update settings', variant: 'destructive' });
+      toast({
+        title: 'Error',
+        description: 'Failed to update settings',
+        variant: 'destructive',
+      });
     },
   });
 
@@ -113,13 +122,17 @@ export default function SettingsManagement() {
     updateSettingMutation.mutate({ key: 'social_links', value: socialLinks });
   };
 
-  const updateOpeningHours = (day: string, field: string, value: string | boolean) => {
-    setOpeningHours(prev => ({
+  const updateOpeningHours = (
+    day: string,
+    field: string,
+    value: string | boolean
+  ) => {
+    setOpeningHours((prev) => ({
       ...prev,
       [day]: {
         ...prev[day as keyof typeof prev],
-        [field]: value
-      }
+        [field]: value,
+      },
     }));
   };
 
@@ -127,7 +140,9 @@ export default function SettingsManagement() {
     return (
       <div className="p-6 text-center">
         <h1 className="text-2xl font-bold text-foreground">Access Denied</h1>
-        <p className="text-muted-foreground">Only administrators can access settings.</p>
+        <p className="text-muted-foreground">
+          Only administrators can access settings.
+        </p>
       </div>
     );
   }
@@ -136,13 +151,25 @@ export default function SettingsManagement() {
     return <div className="p-6">Loading settings...</div>;
   }
 
-  const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+  const days = [
+    'monday',
+    'tuesday',
+    'wednesday',
+    'thursday',
+    'friday',
+    'saturday',
+    'sunday',
+  ];
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-elegant text-accent">Settings Management</h1>
-        <p className="text-muted-foreground">Manage restaurant information and configuration</p>
+        <h1 className="text-3xl font-elegant text-accent">
+          Settings Management
+        </h1>
+        <p className="text-muted-foreground">
+          Manage restaurant information and configuration
+        </p>
       </div>
 
       <div className="grid gap-6">
@@ -162,8 +189,10 @@ export default function SettingsManagement() {
                   <Input
                     id="phone"
                     value={contactInfo.phone}
-                    onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
-                    placeholder=" +212 7667 13267"
+                    onChange={(e) =>
+                      setContactInfo({ ...contactInfo, phone: e.target.value })
+                    }
+                    placeholder=" +212 6932 54604"
                   />
                 </div>
                 <div className="space-y-2">
@@ -171,34 +200,46 @@ export default function SettingsManagement() {
                   <Input
                     id="whatsapp"
                     value={contactInfo.whatsapp}
-                    onChange={(e) => setContactInfo({ ...contactInfo, whatsapp: e.target.value })}
-                    placeholder=" +212 7667 13267"
+                    onChange={(e) =>
+                      setContactInfo({
+                        ...contactInfo,
+                        whatsapp: e.target.value,
+                      })
+                    }
+                    placeholder=" +212 6932 54604"
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   value={contactInfo.email}
-                  onChange={(e) => setContactInfo({ ...contactInfo, email: e.target.value })}
+                  onChange={(e) =>
+                    setContactInfo({ ...contactInfo, email: e.target.value })
+                  }
                   placeholder="contact@riadice.com"
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="address">Address</Label>
                 <Textarea
                   id="address"
                   value={contactInfo.address}
-                  onChange={(e) => setContactInfo({ ...contactInfo, address: e.target.value })}
+                  onChange={(e) =>
+                    setContactInfo({ ...contactInfo, address: e.target.value })
+                  }
                   placeholder="Restaurant address..."
                 />
               </div>
-              
-              <Button type="submit" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+
+              <Button
+                type="submit"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              >
                 Update Contact Info
               </Button>
             </form>
@@ -220,38 +261,53 @@ export default function SettingsManagement() {
                   <div className="w-24">
                     <Label className="capitalize">{day}</Label>
                   </div>
-                  
+
                   <div className="flex items-center gap-2">
                     <input
                       type="checkbox"
-                      checked={openingHours[day as keyof typeof openingHours].closed}
-                      onChange={(e) => updateOpeningHours(day, 'closed', e.target.checked)}
+                      checked={
+                        openingHours[day as keyof typeof openingHours].closed
+                      }
+                      onChange={(e) =>
+                        updateOpeningHours(day, 'closed', e.target.checked)
+                      }
                       className="rounded"
                     />
                     <Label className="text-sm">Closed</Label>
                   </div>
-                  
+
                   {!openingHours[day as keyof typeof openingHours].closed && (
                     <>
                       <Input
                         type="time"
-                        value={openingHours[day as keyof typeof openingHours].open}
-                        onChange={(e) => updateOpeningHours(day, 'open', e.target.value)}
+                        value={
+                          openingHours[day as keyof typeof openingHours].open
+                        }
+                        onChange={(e) =>
+                          updateOpeningHours(day, 'open', e.target.value)
+                        }
                         className="w-32"
                       />
                       <span className="text-muted-foreground">to</span>
                       <Input
                         type="time"
-                        value={openingHours[day as keyof typeof openingHours].close}
-                        onChange={(e) => updateOpeningHours(day, 'close', e.target.value)}
+                        value={
+                          openingHours[day as keyof typeof openingHours].close
+                        }
+                        onChange={(e) =>
+                          updateOpeningHours(day, 'close', e.target.value)
+                        }
                         className="w-32"
                       />
                     </>
                   )}
                 </div>
               ))}
-              
-              <Button type="submit" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+
+              <Button
+                type="submit"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              >
                 Update Opening Hours
               </Button>
             </form>
@@ -276,11 +332,13 @@ export default function SettingsManagement() {
                 <Input
                   id="facebook"
                   value={socialLinks.facebook}
-                  onChange={(e) => setSocialLinks({ ...socialLinks, facebook: e.target.value })}
+                  onChange={(e) =>
+                    setSocialLinks({ ...socialLinks, facebook: e.target.value })
+                  }
                   placeholder="https://facebook.com/riadice"
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="instagram" className="flex items-center gap-2">
                   <Instagram className="h-4 w-4" />
@@ -289,11 +347,16 @@ export default function SettingsManagement() {
                 <Input
                   id="instagram"
                   value={socialLinks.instagram}
-                  onChange={(e) => setSocialLinks({ ...socialLinks, instagram: e.target.value })}
+                  onChange={(e) =>
+                    setSocialLinks({
+                      ...socialLinks,
+                      instagram: e.target.value,
+                    })
+                  }
                   placeholder="https://instagram.com/riadice"
                 />
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="website" className="flex items-center gap-2">
                   <Globe className="h-4 w-4" />
@@ -302,12 +365,17 @@ export default function SettingsManagement() {
                 <Input
                   id="website"
                   value={socialLinks.website}
-                  onChange={(e) => setSocialLinks({ ...socialLinks, website: e.target.value })}
+                  onChange={(e) =>
+                    setSocialLinks({ ...socialLinks, website: e.target.value })
+                  }
                   placeholder="https://riadice.com"
                 />
               </div>
-              
-              <Button type="submit" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+
+              <Button
+                type="submit"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              >
                 Update Social Links
               </Button>
             </form>

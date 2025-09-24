@@ -8,13 +8,14 @@ const ContactSection = () => {
       icon: MapPin,
       title: 'Adresse',
       content: 'JHF5+6W2, Âïn-Harrouda, Grand Casablanca, Maroc',
-      contentAr: 'شارع محمد الخامس، الدار البيضاعين حرودة، الدار البيضاء الكبرى، المغرب'
+      contentAr:
+        'شارع محمد الخامس، الدار البيضاعين حرودة، الدار البيضاء الكبرى، المغرب',
     },
     {
       icon: Phone,
       title: 'Téléphone',
-      content: ' +212 7667 13267',
-      contentAr: ' +212 7667 13267',
+      content: ' +212 6932 54604',
+      contentAr: ' +212 6932 54604',
     },
     {
       icon: Clock,
@@ -92,7 +93,9 @@ const ContactSection = () => {
                 <Button
                   variant="outline"
                   className="btn-outline-moroccan w-full justify-start"
-                  onClick={() => window.open('https://www.instagram.com/riad.ice/', '_blank')}
+                  onClick={() =>
+                    window.open('https://www.instagram.com/riad.ice/', '_blank')
+                  }
                 >
                   <Instagram className="h-4 w-4 mr-2" />
                   Suivre sur Instagram
@@ -119,7 +122,9 @@ const ContactSection = () => {
                   size="sm"
                   variant="outline"
                   className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                  onClick={() => window.open('https://www.instagram.com/riad.ice/', '_blank')}
+                  onClick={() =>
+                    window.open('https://www.instagram.com/riad.ice/', '_blank')
+                  }
                 >
                   <Instagram className="h-4 w-4" />
                 </Button>
@@ -127,7 +132,12 @@ const ContactSection = () => {
                   size="sm"
                   variant="outline"
                   className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                  onClick={() => window.open('https://web.facebook.com/riad.ice/?_rdc=1&_rdr#', '_blank')}
+                  onClick={() =>
+                    window.open(
+                      'https://web.facebook.com/riad.ice/?_rdc=1&_rdr#',
+                      '_blank'
+                    )
+                  }
                 >
                   <Facebook className="h-4 w-4" />
                 </Button>

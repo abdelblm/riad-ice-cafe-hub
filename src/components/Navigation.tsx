@@ -43,11 +43,11 @@ const Navigation = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center text-primary-foreground/80 text-sm">
               <Phone className="h-4 w-4 mr-1" />
-              <span> +212 7667 13267</span>
+              <span> +212 6932 54604</span>
             </div>
-            <Button 
-              variant="outline" 
-              size="sm" 
+            <Button
+              variant="outline"
+              size="sm"
               className="btn-outline-moroccan text-xs"
               onClick={() => openWhatsApp()}
             >
@@ -66,7 +66,11 @@ const Navigation = () => {
               onClick={() => setIsOpen(!isOpen)}
               className="text-primary-foreground hover:text-accent"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -89,9 +93,9 @@ const Navigation = () => {
             <div className="pt-4 pb-2 border-t border-border/20 mt-4">
               <div className="flex items-center text-primary-foreground/80 text-sm px-3 py-2">
                 <Phone className="h-4 w-4 mr-2" />
-                <span> +212 7667 13267</span>
+                <span> +212 6932 54604</span>
               </div>
-              <Button 
+              <Button
                 className="btn-moroccan mx-3 mt-2 w-full"
                 onClick={() => openWhatsApp()}
               >
