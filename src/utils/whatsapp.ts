@@ -1,6 +1,6 @@
 // WhatsApp utility functions for Riad Ice reservations (Moroccan Darija)
 
-export const WHATSAPP_PHONE = '212766713267'; //  +212 6932 54604 without + and spaces
+export const WHATSAPP_PHONE = '212693254604'; //  +212 6932 54604 without + and spaces
 
 export interface ReservationDetails {
   guests?: number;
